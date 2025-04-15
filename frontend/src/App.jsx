@@ -12,7 +12,8 @@ function App() {
 
   const fetchUser = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/user/", {
+      const baseUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+      const response = await axios.get(`${baseUrl}/api/user`, {
         withCredentials: true, 
       });
       setUser(response.data.data); 

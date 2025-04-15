@@ -14,8 +14,9 @@ export default function LoginForm({ onLogin }) {
 
     try {
       // Make an API call to the backend using axios
+      const baseUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
       const response = await axios.post(
-        'http://localhost:8000/api/user/login',
+        `${baseUrl}/api/user/login`,
         { email, password },
         { withCredentials: true } // Include credentials (cookies)
       );
